@@ -1,0 +1,22 @@
+/* some style */
+
+
+.navbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  background-color: #447AE8;
+  border: 0px;
+  border-radius: 0;
+}
+
+.nodesbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 180px;
+    height: 200px;
+    background-color: light-grey;
+    border-bottom: thick solid black;
+}
