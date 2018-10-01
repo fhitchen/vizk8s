@@ -35,11 +35,11 @@
    [:div.header
     [navbar/navbar app-state]]
    [:div.nodesbar
-    [nodes/node-panel app-state]]
+    [nodes/node-panel @app-state]]
    [:div.main]
    [:div.footer]])
 
-(reagent/render-component [vizk8s-main]
+(reagent/render-component [vizk8s-main model/app-state]
                           (. js/document (getElementById "app")))
 
 

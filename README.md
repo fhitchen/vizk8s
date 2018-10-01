@@ -33,10 +33,12 @@ And open your browser in `resources/public/index.html`. You will not
 get live reloading, nor a REPL. 
 
 The Clojure package [com.guaranteedrate/ring-proxy "3.0.0"] needs to be downloaded and patched
-https://github.com/tailrecursion/ring-proxy/pull/14/commits/97be94dc2d4a93c1810a60019a0e02c2c0f9ef97#diff-3fe6fccb7dc3e851151e2fdc7f13ecee
 
-Then do a
-$ export LEIN_SNAPSHOTS_IN_RELEASE=1.0.0
+$ git clone https://github.com/Guaranteed-Rate/ring-proxy.git 
+
+Then do a patch from https://github.com/tailrecursion/ring-proxy/pull/14/commits/97be94dc2d4a93c1810a60019a0e02c2c0f9ef97#diff-3fe6fccb7dc3e851151e2fdc7f13ecee
+
+$ export LEIN_SNAPSHOTS_IN_RELEASE=true
 $ lein uberjar
 $ lein install
 
