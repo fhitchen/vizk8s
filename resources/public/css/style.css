@@ -11,12 +11,34 @@
   border-radius: 0;
 }
 
+
 .nodesbar {
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
     top: 180px;
     height: 200px;
     background-color: light-grey;
     border-bottom: thick solid black;
+}
+
+.ready {
+    color: blue;
+}
+
+.not-ready {
+    background-color: red;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  color: tomato;
 }
