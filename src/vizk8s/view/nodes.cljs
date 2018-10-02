@@ -16,7 +16,7 @@
           (do
             (let [status (:status (find-all :type "Ready" conditions))
                   ready (if (= status "True") "ready" "not-ready")]
-              [:div {:color "blue"} name])))))
+              [(keyword (str "div#" ready)) name])))))
 
 
 

@@ -13,17 +13,17 @@
 
 
 .nodesbar {
-    position: relative;
+    position: absolute;
     left: 0;
     right: 0;
-    top: 180px;
+    top: 200px;
     height: 200px;
     background-color: light-grey;
     border-bottom: thick solid black;
 }
 
 .ready {
-    color: blue;
+    color: orange;
 }
 
 .not-ready {
@@ -35,10 +35,19 @@
     flex-wrap: wrap;
 }
 
-.flex-container > div {
+.flex-container > div#ready {
   background-color: #f1f1f1;
-  margin: 10px;
-  padding: 20px;
-  font-size: 30px;
-  color: tomato;
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+  color: blue;
 }
+
+.flex-container > div#not-ready {
+  background-color: #f1f1f1;
+  margin: 5px;
+  padding: 10px;
+  font-size: 20px;
+  color: red;
+}
+

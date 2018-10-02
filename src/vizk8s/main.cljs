@@ -34,7 +34,7 @@
   [:div.content
    [:div.header
     [navbar/navbar app-state]]
-   [:div.nodes-list
+   [:div.nodesbar
     [nodes/node-panel @app-state]]
    [:div.main]
    [:div.footer]])
