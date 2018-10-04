@@ -12,11 +12,14 @@
 
 (defn node-panel [{:keys [nodes]}]
   (into [:div {:class "flex-container"}]
-        (for [{{:keys [name]} :metadata {:keys [conditions]} :status} nodes]
-          (do
-            (let [status (:status (find-all :type "Ready" conditions))
-                  ready (if (= status "True") "ready" "not-ready")]
-              [(keyword (str "div#" ready)) name])))))
-
-
-
+        (for [{{:keys [name]} :metadata
+               {:keys [conditions]} :status
+               {:keys [unschedulable taints]} :spec } nodes]
+              (do
+                (let [status (:status (find-all :type "Ready" conditions))
+                      ready (if (= status "True") "ready" "not-ready")
+                      ready (if (= unschedulable true) "unsched" ready)
+                      master (if (= "node-role.kubernetes.io/master" (:key (first taints))) "master")]
+                      (if (= "node-role.kubernetes.io/master" (:key (first taints)))
+                        [(keyword (str "div#master")) name]
+                        [(keyword (str "div#" ready )) name]))))))

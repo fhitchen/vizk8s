@@ -7,4 +7,14 @@
   (go (let [nodes (<! (http/get "/api/v1/nodes"))]
         nodes)))
 
-(println get-nodes)
+(defn get-deployments []
+  (go (let [deployments (<! (http/get "/apis/extensions/v1beta1/namespaces/com-att-cwdigital-shop-prod/deployments"))]
+        deployments)))
+
+(defn get-replicasets []
+  (go (let [replicasets (<! (http/get "/apis/extensions/v1beta1/namespaces/com-att-cwdigital-shop-prod/replicasets"))]
+        replicasets)))
+
+(defn get-pods []
+  (go (let [pods (<! (http/get "/api/v1/namespaces/com-att-cwdigital-shop-prod/pods"))]
+        pods)))

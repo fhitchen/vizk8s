@@ -9,7 +9,7 @@
   :min-lein-version "2.7.1"
 
   :dependencies [[org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.10.238"]
+                 [org.clojure/clojurescript "1.10.339"]
                  [org.clojure/core.async  "0.4.474"]
                  [cljs-http "0.1.45"]
                  [reagent "0.7.0"]
@@ -17,8 +17,8 @@
                  [ring "1.7.0"]
                  [ring/ring-defaults "0.3.2"]
                  [compojure "1.6.1"]
-                 ;;[puppetlabs/ring-middleware "1.0.0"]]
-                 [com.guaranteedrate/ring-proxy "3.0.0"]]
+                 [com.guaranteedrate/ring-proxy "3.0.0"]
+                 [cljsjs/jsplumb "2.8.8-0"]]
 
   :plugins [[lein-figwheel "0.5.16"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]]

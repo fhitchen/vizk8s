@@ -21,5 +21,23 @@
       (println "refreshing nodes")
       (swap! app-state update-in [:nodes] replace nodes))))
 
-       
+(defn refresh-deployments [app-state]
+  (go
+    (let [deployments (:items (:body (<! (comm/get-deployments))))]
+      (println "refreshing deployments")
+      (swap! app-state update-in [:deployments] replace deployments))))
+
+(defn refresh-replicasets [app-state]
+  (go
+    (let [replicasets (:items (:body (<! (comm/get-replicasets))))]
+      (println "refreshing replicasets")
+      (swap! app-state update-in [:replicasets] replace replicasets))))
+
+(defn refresh-pods [app-state]
+  (go
+    (let [pods (:items (:body (<! (comm/get-pods))))]
+      (println "refreshing pods")
+      (swap! app-state update-in [:pods] replace pods))))
+
+
   

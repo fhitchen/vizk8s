@@ -5,7 +5,10 @@
             [cljs.core.async :refer [<!]]
             [vizk8s.model :as model]
             [vizk8s.view.navbar :as navbar]
-            [vizk8s.view.nodes :as nodes]))
+            [vizk8s.view.nodes :as nodes]
+            [vizk8s.view.deployments :as deployments]
+            [vizk8s.view.replicasets :as replicasets]
+            [vizk8s.view.pods :as pods]))
 
 
 (enable-console-print!)
@@ -36,7 +39,12 @@
     [navbar/navbar app-state]]
    [:div.nodesbar
     [nodes/node-panel @app-state]]
-   [:div.main]
+   [:div.deployments
+    [deployments/deployment-panel @app-state]]
+   [:div.replicasets
+    [replicasets/replicasets-panel @app-state]]
+   [:div#pods.pods
+    [pods/pods-panel @app-state]]
    [:div.footer]])
 
 (reagent/render-component [vizk8s-main model/app-state]

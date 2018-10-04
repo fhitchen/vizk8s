@@ -17,9 +17,37 @@
     left: 0;
     right: 0;
     top: 200px;
-    height: 200px;
+    /*height: 200px; */
     background-color: light-grey;
-    border-bottom: thick solid black;
+    border-bottom: thin solid black;
+}
+.deployments {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 500px;
+    /*height: 200px; */
+    background-color: light-grey;
+    border-bottom: thin solid black;
+}
+.replicasets {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 800px;
+    /*height: 200px; */
+    background-color: light-grey;
+    border-bottom: thin solid black;
+}
+
+.pods {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 900px;
+    /*height: 200px; */
+    background-color: light-grey;
+    border-bottom: thin solid black;
 }
 
 .ready {
@@ -35,12 +63,37 @@
     flex-wrap: wrap;
 }
 
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+  color: blue;
+
+}
+
 .flex-container > div#ready {
   background-color: #f1f1f1;
   margin: 5px;
   padding: 5px;
   font-size: 18px;
   color: blue;
+}
+
+.flex-container > div#master {
+  background-color: #f1f1f1;
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+  color: green;
+}
+
+.flex-container > div#unsched {
+  background-color: #f1f1f1;
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+  color: tomato;
 }
 
 .flex-container > div#not-ready {
