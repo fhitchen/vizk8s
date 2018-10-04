@@ -33,6 +33,7 @@
                  (wrap-defaults site-defaults)
                  ;; Use a django API on a different localhost port:
                  (wrap-proxy "/api/" "http://localhost:8001/api")
+                 (wrap-proxy "/apis/" "http://localhost:8001/apis")
                  ;; Use the django static-files if you need for eg the admin site:
                  (wrap-proxy "/static" "http://localhost:8000/static")
                  ;; Proxy requests to a third-party API without CORS enabled:
