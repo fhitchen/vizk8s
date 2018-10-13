@@ -18,26 +18,20 @@
   (let [instance (.getInstance js/jsPlumb (clj->js {:Container "flowchart-demo"
                                                     :Connector [ "Bezier" { :curviness 150 } ]
                                                     :Anchors  [ "BottomCenter" "TopCenter" ]}))
+        rs (:replicasets @model/app-state)
         pods (:pods @model/app-state)]
     (println (type pods) (count pods))
+    (doseq [{{:keys [name labels]} :metadata } rs]
+      (do
+        (println " name=" name)))
     (doseq [{{:keys [name labels]} :metadata } pods]
       (do
         (let [rs (subs name 0 (string/last-index-of name "-"))]
           
-          (println rs " name=" name)
+          (println rs " name==" name)
           (.connect instance (clj->js {:source rs
-                                       :target name })))))))
+                                        :target name })))))))
 
-
-
-    (comment .connect instance (clj->js {:source "commercemobileproductvalidation-1-d2a-77cc7f5565"
-                                 :target "commercemobileproductvalidation-1-d2a-77cc7f5565-rb6jj" }))
-    (comment .connect instance (clj->js {:source "commercemobileproductvalidation-1-d2a-77cc7f5565"
-                                 :target "commercemobileproductvalidation-1-d2a-77cc7f5565-xtvx2" }))
-                                                   
-  (comment .importDefaults instance (clj->js {:Connector [ "Bezier" { :curviness 150 } ]
-                                      :Anchors  [ "TopCenter" "BottomCenter" ]
-                                      :DragOptions {:cursor "pointer" :zIndex 2000 }}))
 
 (defn ^:export ready-fn []
   (println "READY-FN called")

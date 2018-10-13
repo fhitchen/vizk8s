@@ -33,6 +33,9 @@
 ;(println (first (:items (:body pods))))
 
 (model/refresh-nodes model/app-state)
+(model/refresh-deployments model/app-state)
+(model/refresh-replicasets model/app-state)
+(model/refresh-pods model/app-state)
 
 (defn vizk8s-main [app-state]
   [:div.content

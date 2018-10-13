@@ -14,4 +14,4 @@
           (do
             (println name)
             (let [app (:app labels)]
-              [:div app])))))
+              [(keyword (str "div#" name)) app])))))
