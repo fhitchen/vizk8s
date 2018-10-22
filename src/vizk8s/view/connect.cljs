@@ -23,12 +23,13 @@
     (println (type pods) (count pods))
     (doseq [{{:keys [name labels]} :metadata } rs]
       (do
-        (println " name=" name)))
+        (let [deployment (subs name 0 (string/last-index-of name "-"))]
+         (println " name=" name "deployment=" deployment)
+         (.connect instance (clj->js {:source deployment
+                                      :target name})))))
     (doseq [{{:keys [name labels]} :metadata } pods]
       (do
         (let [rs (subs name 0 (string/last-index-of name "-"))]
-          
-          (println rs " name==" name)
           (.connect instance (clj->js {:source rs
                                         :target name })))))))
 
