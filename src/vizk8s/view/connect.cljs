@@ -4,6 +4,8 @@
    [cljsjs.jsplumb :as plumb]
    [vizk8s.model :as model]))
 
+(defn hex-color [& args]
+  (apply str "#" (map #(.toString % 16) args)))
 
 (defn sleep [f ms]
   (js/setTimeout f ms))
@@ -26,11 +28,13 @@
         (println " name=" name)))
     (doseq [{{:keys [name labels]} :metadata } pods]
       (do
-        (let [rs (subs name 0 (string/last-index-of name "-"))]
+        (let [rs (subs name 0 (string/last-index-of name "-"))
+	      color (hex-color (rand-int 16rFFFFFF))]
           
-          (println rs " name==" name)
+          (println rs " name==" name "color=" color)
           (.connect instance (clj->js {:source rs
-                                        :target name })))))))
+                                       :target name
+				       :paintStyle { :stroke color :strokeWidth 3}})))))))
 
 
 (defn ^:export ready-fn []
