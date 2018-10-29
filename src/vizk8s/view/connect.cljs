@@ -25,13 +25,14 @@
     (println (type pods) (count pods))
     (doseq [{{:keys [name labels]} :metadata } rs]
       (do
-        (println " name=" name)))
+        (let [deployment (subs name 0 (string/last-index-of name "-"))]
+         (println " name=" name "deployment=" deployment)
+         (.connect instance (clj->js {:source deployment
+                                      :target name})))))
     (doseq [{{:keys [name labels]} :metadata } pods]
       (do
         (let [rs (subs name 0 (string/last-index-of name "-"))
 	      color (hex-color (rand-int 16rFFFFFF))]
-          
-          (println rs " name==" name "color=" color)
           (.connect instance (clj->js {:source rs
                                        :target name
 				       :paintStyle { :stroke color :strokeWidth 3}})))))))
